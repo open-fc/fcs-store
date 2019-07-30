@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:map id="codeMap" map-class="java.util.HashMap">
+		<entry key="-1" value="系统内部错误" />
+
+	</util:map>
+
+
+	<util:map id="commonMap" map-class="java.util.HashMap">
+		<entry key="server.port" value="${server.port}" />
+		
+		<entry key="replace.timestamp.enable" value="${replace.timestamp.enable}" />
+		<entry key="replace.timestamp.key" value="${replace.timestamp.key}" />
+		
+		<entry key="file.enable" value="${file.enable}" />
+		<entry key="file.write.limit" value="${file.write.limit}" />
+		<entry key="file.root.path" value="${file.root.path}" />
+		
+		<entry key="mongo.enable" value="${mongo.enable}" />
+		<entry key="mongo.url" value="${mongo.url}" />
+		<entry key="mongo.dbname" value="${mongo.dbname}" />
+		<entry key="mongo.template.path" value="${mongo.template.path}" />
+		
+		<entry key="influx.enable" value="${influx.enable}" />
+		<entry key="influx.url" value="${influx.url}" />
+		<entry key="influx.tag.path" value="${influx.tag.path}" />
+		
+		<entry key="ai.enable" value="${ai.enable}" />
+		<entry key="ai.url" value="${ai.url}" />
+		<entry key="ai.param.path" value="${ai.param.path}" />
+		
+	</util:map>
+	
+	
+	<bean id="bizService" class="cn.openfc.store.service.BizService" init-method="init" destroy-method="close">
+       <property name="commonMap" ref="commonMap" />
+       <property name="aiService" ref="aiService" />
+   	</bean>
+   	
+	<bean id="aiService" class="cn.openfc.store.service.AiService" init-method="init">
+       <property name="commonMap" ref="commonMap" />
+   	</bean>   	
+   
+</beans>        
