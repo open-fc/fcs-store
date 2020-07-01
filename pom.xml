@@ -21,7 +21,7 @@
 		<mongodb.version>3.8.2</mongodb.version>
 		<netty.version>4.1.36.Final</netty.version>
 		<slf4j.version>1.7.25</slf4j.version>
-		<log4j.version>2.11.1</log4j.version>
+		<log4j.version>2.13.3</log4j.version>
 		<commons.io.version>2.6</commons.io.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<http.client>4.5.9</http.client>
