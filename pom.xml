@@ -24,7 +24,7 @@
 		<log4j.version>2.11.1</log4j.version>
 		<commons.io.version>2.6</commons.io.version>
 		<commons.lang.version>2.6</commons.lang.version>
-		<http.client>4.5.9</http.client>
+		<http.client>4.5.13</http.client>
 		<jackson.version>2.9.9</jackson.version>
 	</properties>
 
